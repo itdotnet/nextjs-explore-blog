@@ -5,22 +5,34 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         hostname: "cdn.britannica.com",
-        protocol: "https"
+        protocol: "https",
       },
       {
         hostname: "www.mychiangmaitravel.com",
-        protocol: "http"
+        protocol: "http",
       },
       {
         hostname: "www.home-hunts.net",
-        protocol: "https"
+        protocol: "https",
       },
       {
         hostname: "www.travelandleisure.com",
-        protocol: "https"
-      }
-    ]
-  }
+        protocol: "https",
+      },
+      {
+        hostname: "media.tacdn.com",
+        protocol: "https",
+      },
+      {
+        hostname: "www.flytoday.ir",
+        protocol: "https",
+      },
+      {
+        hostname: "images.unsplash.com",
+        protocol: "https",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
