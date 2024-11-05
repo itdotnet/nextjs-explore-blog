@@ -6,7 +6,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "یک شهر سرسبز دوست داشتنی: نیویورک",
     description:
       "نیویورک شهری در ایالات متحده آمریکا است. این شهر پرجمعیت ترین شهر ایالات متحده است.",
-    category: { id: "1", title: "شهرها" },
+    category: { id: "1", title: "شهرها", slug: "cities" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "a-lovely-green-city-new-york",
     image:
@@ -20,7 +20,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "شهر سرزنده پاریس",
     description:
       "پاریس پایتخت و پرجمعیت ترین شهر فرانسه است. این بر روی رودخانه سن، در شمال کشور، در قلب منطقه ایل دو فرانس واقع شده است.",
-    category: { id: "1", title: "شهرها" },
+    category: { id: "1", title: "شهرها", slug: "cities" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "شهر سرزنده پاریس",
     image:
@@ -34,7 +34,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "شهر باشکوه لندن",
     description:
       "لندن پایتخت و بزرگترین شهر انگلستان و بریتانیا است. این شهر بر روی رودخانه تیمز در جنوب شرقی انگلستان واقع شده است.",
-    category: { id: "1", title: "Cities" },
+    category: { id: "1", title: "شهرها", slug: "cities" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "the-majestic-city-of-london",
     image:
@@ -48,7 +48,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "ماجراجویی بزرگ آمازون",
     description:
       "آمازون بزرگترین رودخانه جهان است. در آمریکای جنوبی قرار دارد و از برزیل، پرو، کلمبیا و غیره می گذرد.",
-    category: { id: "2", title: "تجربیات" },
+    category: { id: "2", title: "تجربیات", slug: "experiences" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "the-great-adventure-of-the-amazon",
     image:
@@ -62,7 +62,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "سفر به آسمان بیکران: کاپادوکیا",
     description:
       "کاپادوکیا منطقه ای در مرکز ترکیه است. این شهر به دلیل ویژگی‌های زمین‌شناسی منحصربه‌فردش، مانند دودکش‌های پری، که صخره‌ای مخروطی شکل هستند، شناخته شده است.",
-    category: { id: "2", title: "تجربیات" },
+    category: { id: "2", title: "تجربیات", slug: "experiences" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "let-the-wind-take-you-to-the-infinite-sky-cappadocia",
     image:
@@ -76,7 +76,7 @@ export const DUMMY_POSTS: Post[] = [
     title: "ملحق شدن به فیل ها در طبیعت: تایلند",
     description:
       "تایلند کشوری در جنوب شرقی آسیا است. این شهر به‌خاطر سواحل استوایی، کاخ‌های سلطنتی مجلل، ویرانه‌های باستانی، و معابد پرآذینی که مجسمه‌های بودا را به نمایش می‌گذارند، شهرت دارد.",
-    category: { id: "2", title: "تجربیات" },
+    category: { id: "2", title: "تجربیات", slug: "experiences" },
     author: { id: "1", first_name: "امید", last_name: "عباسی" },
     slug: "joining-the-elephants-in-the-wild-thailand",
     image:

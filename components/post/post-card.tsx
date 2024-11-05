@@ -30,7 +30,7 @@ const PostCard = ({
         src={post.image}
         width={600}
         height={300}
-        className={`rounded-md w-full max-h-[300px] object-cover object-center ${
+        className={`rounded-md w-full h-[300px] object-cover object-center ${
           reverse ? "md:order-last" : ""
         }`}
       />
