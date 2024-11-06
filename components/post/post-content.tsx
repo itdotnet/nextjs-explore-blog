@@ -10,13 +10,18 @@ import React from "react";
 
 interface PostContentProps {
   post: Post;
+  isPostPage?: boolean;
 }
 
-const PostContent = ({ post }: PostContentProps) => {
+const PostContent = ({ post, isPostPage = false }: PostContentProps) => {
   return (
     <div className="space-y-2">
       {/* Tags */}
-      <div className="flex items-center gap-2 text-sm text-neutral-400">
+      <div
+        className={`flex items-center flex-wrap gap-2 text-neutral-400 ${
+          isPostPage ? "text-sm" : "text-xs md:text-sm"
+        }`}
+      >
         <div
           className={`font-medium ${
             post.category.title === "شهرها"
@@ -36,14 +41,24 @@ const PostContent = ({ post }: PostContentProps) => {
         </div>
       </div>
       {/* Title */}
-      <div className="font-medium xl:text-3xl text-xl">{post.title}</div>
+      <div
+        className={`${
+          isPostPage
+            ? "font-bold xl:text-4xl lg:text-3xl text-2xl"
+            : "font-medium xl:text-3xl lg:text-2xl text-xl"
+        }`}
+      >
+        {post.title}
+      </div>
       {/* Description */}
       <div className="text-neutral-600 leading-snug text-base xl:text-lg">
         {post.description}
       </div>
-      <div className="flex items-center gap-2 pt-3">
-        بیشتر بدانید <ArrowLeft />
-      </div>
+      {!isPostPage && (
+        <div className="flex items-center gap-2 pt-3">
+          بیشتر بدانید <ArrowLeft />
+        </div>
+      )}
     </div>
   );
 };
