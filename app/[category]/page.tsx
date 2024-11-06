@@ -1,15 +1,6 @@
 import { DUMMY_CATEGORIES, DUMMY_POSTS } from "@/DUMMY_DATA";
 import PaddingContainer from "@/components/layout/padding-container";
 import PostList from "@/components/post/post-list";
-// import React from "react";
-
-// export const generateStaticParams = async () => {
-//   return DUMMY_CATEGORIES.map((category) => {
-//     return {
-//       category: category.slug,
-//     };
-//   });
-// };
 
 export async function generateStaticParams() {
   return DUMMY_CATEGORIES.map((category) => {
