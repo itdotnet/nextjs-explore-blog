@@ -3,15 +3,17 @@ import PaddingContainer from "../layout/padding-container";
 import siteConfig from "@/config/site";
 import Link from "next/link";
 import SocialLink from "../elements/social-link";
+import { getDictionary } from "@/lib/getDictionary";
 
-const Footer = () => {
+const Footer = async ({ locale }: { locale: string }) => {
+  const dictionary = await getDictionary(locale);
   return (
     <div className="py-8 mt-10 border-t">
       <PaddingContainer>
         <div>
           <h2 className="font-bold text-3xl">{siteConfig.siteName}</h2>
           <p className="max-w-md mt-2 text-lg text-neutral-700">
-            {siteConfig.description}
+            {dictionary.footer.description}
           </p>
         </div>
         {/* Social And CurrentlyAt */}
@@ -46,7 +48,9 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <div className="text-sm text-neutral-400">موقعیت</div>
+            <div className="text-sm text-neutral-400">
+              {dictionary.footer.currentlyAtText}
+            </div>
             <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-md shadow-md">
               <div className="bg-emerald-400 w-2 h-2 rounded-full" />
               {siteConfig.currentlyAt}
@@ -56,10 +60,10 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="py-3 border-t mt-16 flex flex-wrap items-center justify-between gap-4">
           <div className="text-sm text-neutral-400">
-            تمام حقوق محفوظ است | کپی رایت {new Date().getFullYear()}
+            {dictionary.footer.rightsText} {new Date().getFullYear()}
           </div>
           <div className="text-sm">
-            طراحی شده توسط{" "}
+            {dictionary.footer.creatorText}{" "}
             <Link
               className="underline underline-offset-4"
               href="https://www.linkedin.com/in/abbasiomid"

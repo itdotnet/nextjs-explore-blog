@@ -8,12 +8,14 @@ interface PostProps {
   post: Post;
   layout?: "horizontal" | "vertical";
   reverse?: boolean;
+  locale: string;
 }
 
 const PostCard = ({
   post,
   layout = "horizontal",
   reverse = false,
+  locale,
 }: PostProps) => {
   return (
     <Link
@@ -35,7 +37,7 @@ const PostCard = ({
         }`}
       />
       {/* Post Content */}
-      <PostContent post={post} />
+      <PostContent locale={locale} post={post} />
     </Link>
   );
 };

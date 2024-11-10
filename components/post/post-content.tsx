@@ -1,3 +1,4 @@
+import { getDictionary } from "@/lib/getDictionary";
 import {
   convertReadingTimeToPersian,
   convertRelativeDatoToPersian,
@@ -5,15 +6,22 @@ import {
   getRelativeDate,
 } from "@/lib/helpers";
 import { Post } from "@/types/collection";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import React from "react";
 
 interface PostContentProps {
   post: Post;
   isPostPage?: boolean;
+  locale: string;
 }
 
-const PostContent = ({ post, isPostPage = false }: PostContentProps) => {
+const PostContent = async ({
+  post,
+  isPostPage = false,
+  locale,
+}: PostContentProps) => {
+  const dictionary = await getDictionary(locale);
+
   return (
     <div className="space-y-2">
       {/* Tags */}
@@ -34,11 +42,9 @@ const PostContent = ({ post, isPostPage = false }: PostContentProps) => {
         <div className="w-2 h-2 rounded-full bg-neutral-200" />
         <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
         <div className="w-2 h-2 rounded-full bg-neutral-200" />
-        <div>{convertReadingTimeToPersian(getReadingTime(post.body))}</div>
+        <div>{getReadingTime(post.body, locale)}</div>
         <div className="w-2 h-2 rounded-full bg-neutral-200" />
-        <div>
-          {convertRelativeDatoToPersian(getRelativeDate(post.date_created)!)}
-        </div>
+        <div>{getRelativeDate(post.date_created, locale)}</div>
       </div>
       {/* Title */}
       <div
@@ -56,7 +62,8 @@ const PostContent = ({ post, isPostPage = false }: PostContentProps) => {
       </div>
       {!isPostPage && (
         <div className="flex items-center gap-2 pt-3">
-          بیشتر بدانید <ArrowLeft />
+          {dictionary.buttons.readMore} {locale === "fa" && <ArrowLeft />}{" "}
+          {locale === "en" && <ArrowRight />}
         </div>
       )}
     </div>
