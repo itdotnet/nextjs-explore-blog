@@ -1,0 +1,25 @@
+{
+    "navigation": {
+      "links": {
+        "cities": "شهرها",
+        "experience": "تجربيات"
+      }
+    },
+    "buttons": {
+      "readMore": "بيشتر بدانيد"
+    },
+    "ctaCard": {
+      "title": "جهان را با من تماشا كن!",
+      "description": "يبنتراينتبراين يبليلبي",
+      "button": "ثبت نام",
+      "placeholder": "ايميل خود را وارد نماييد.",
+      "subscriberText1": "به ما ملحق شويد",
+      "subscriberText2": "مشترك شويد"
+    },
+    "footer": {
+      "description": "سيليسليل",
+      "rightsText": "تمام حقوق محفوظ است | كپي رايت",
+      "creatorText": "ظراحي شده توسظ",
+      "currentlyAtText": "هم اكنون در"
+    }
+  }
