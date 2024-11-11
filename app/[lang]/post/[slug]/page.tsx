@@ -15,8 +15,12 @@ export const generateStaticParams = async () => {
   });
 };
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
-  const { slug } = await params;
+const Page = async ({
+  params,
+}: {
+  params: Promise<{ slug: string; lang: string }>;
+}) => {
+  const { slug, lang } = await params;
   const post = DUMMY_POSTS.find((post) => post.slug === slug);
 
   if (!post) notFound();
@@ -26,7 +30,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       {/* Container */}
       <div className="space-y-10">
         {/* Post Hero */}
-        <PostHero post={post} />
+        <PostHero locale={lang} post={post} />
         {/* Social Link And Post Body */}
         <div className="flex gap-10 flex-col md:flex-row">
           <div className="relative">
@@ -52,7 +56,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           <PostBody body={post.body} />
         </div>
         {/* CTACard */}
-        <CtaCard />
+        <CtaCard locale={lang} />
       </div>
     </PaddingContainer>
   );

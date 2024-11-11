@@ -8,6 +8,10 @@
     "buttons": {
       "readMore": "Read More"
     },
+    "site":{
+      "title":"Explore",
+      "tag":"exploretheworld"
+    },
     "ctaCard": {
       "title": "Explore the world with me!",
       "description": "Explore the world with me! I'm travelling around the 🌍. I've visited most of the great cities of 🇺🇸 and currently I'm travelling in 🇪🇺 Join me!",
@@ -20,6 +24,7 @@
       "description": "A minimal and lovely travel blog which shares experiences and citiest around the world!",
       "rightsText": "All rights are reserved | Copyright",
       "creatorText": "Created with ❤️ by",
-      "currentlyAtText": "Currently at"
+      "currentlyAtText": "Currently at",
+      "currentlyAtValue":"Iran" 
     }
   }

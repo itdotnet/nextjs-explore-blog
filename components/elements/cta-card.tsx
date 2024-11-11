@@ -17,7 +17,7 @@ const CtaCard = async ({ locale }: { locale: string }) => {
       />
       {/* Content Container */}
       <div className="relative z-20">
-        <div className="text-lg font-medium">#جهانگردي</div>
+        <div className="text-lg font-medium">#{dictionary.site.tag}</div>
         <h3 className="mt-3 text-4xl font-semibold">
           {dictionary.ctaCard.title}
         </h3>
