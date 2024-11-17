@@ -5,7 +5,12 @@ import PaddingContainer from "@/components/layout/padding-container";
 import PostBody from "@/components/post/post-body";
 import PostHero from "@/components/post/post-hero";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { cache } from "react";
+
+const getPostData = cache((slug: string) => {
+  const post = DUMMY_POSTS.find((post) => post.slug === slug);
+  return post;
+});
 
 export const generateStaticParams = async () => {
   return DUMMY_POSTS.map((post) => {
@@ -15,13 +20,22 @@ export const generateStaticParams = async () => {
   });
 };
 
-const Page = async ({
-  params,
+export const generateMetadata = ({
+  params: { slug },
 }: {
-  params: Promise<{ slug: string; lang: string }>;
+  params: { slug: string };
 }) => {
-  const { slug, lang } = await params;
-  const post = DUMMY_POSTS.find((post) => post.slug === slug);
+  const post = getPostData(slug);
+
+  return {
+    title: post?.title,
+    description: post?.description,
+  };
+};
+
+const Page = ({ params }: { params: { slug: string; lang: string } }) => {
+  //const { slug, lang } = await params;
+  const post = getPostData(params.slug);
 
   if (!post) notFound();
 
@@ -30,7 +44,7 @@ const Page = async ({
       {/* Container */}
       <div className="space-y-10">
         {/* Post Hero */}
-        <PostHero locale={lang} post={post} />
+        <PostHero locale={params.lang} post={post} />
         {/* Social Link And Post Body */}
         <div className="flex gap-10 flex-col md:flex-row">
           <div className="relative">
@@ -56,7 +70,7 @@ const Page = async ({
           <PostBody body={post.body} />
         </div>
         {/* CTACard */}
-        <CtaCard locale={lang} />
+        <CtaCard locale={params.lang} />
       </div>
     </PaddingContainer>
   );
