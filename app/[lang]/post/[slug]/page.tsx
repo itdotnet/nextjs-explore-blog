@@ -8,7 +8,7 @@ import siteConfig from "@/config/site";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
 
-const getPostData = cache((slug: string) => {
+export const getPostData = cache((slug: string) => {
   const post = DUMMY_POSTS.find((post) => post.slug === slug);
   return post;
 });
@@ -64,7 +64,7 @@ const Page = ({ params }: { params: { slug: string; lang: string } }) => {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post?.title,
-    image: post?.image,
+    image: `${process.env.NEXT_PUBLIC_SITE_URL}/${params.lang}/post/${params.slug}/opengraph-image.png`,
     author: post?.author.first_name + " " + post?.author.last_name,
     genre: post?.category.title,
     publisher: siteConfig.siteName,

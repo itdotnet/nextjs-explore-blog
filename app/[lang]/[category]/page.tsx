@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   });
 }
 
-const getCategoryData = cache((categorySlug: string) => {
+export const getCategoryData = cache((categorySlug: string) => {
   const category = DUMMY_CATEGORIES.find((cat) => cat.slug === categorySlug);
 
   return category;
