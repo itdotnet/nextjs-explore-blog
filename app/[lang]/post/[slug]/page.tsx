@@ -4,6 +4,7 @@ import SocialLink from "@/components/elements/social-link";
 import PaddingContainer from "@/components/layout/padding-container";
 import PostBody from "@/components/post/post-body";
 import PostHero from "@/components/post/post-hero";
+import siteConfig from "@/config/site";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
 
@@ -59,10 +60,30 @@ const Page = ({ params }: { params: { slug: string; lang: string } }) => {
   //const { slug, lang } = await params;
   const post = getPostData(params.slug);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post?.title,
+    image: post?.image,
+    author: post?.author.first_name + " " + post?.author.last_name,
+    genre: post?.category.title,
+    publisher: siteConfig.siteName,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/post/${params.slug}`,
+    datePublished: new Date(post?.date_created!).toISOString(),
+    dateCreated: new Date(post?.date_created!).toISOString(),
+    dateModified: new Date(post?.date_updated!).toISOString(),
+    description: post?.description,
+    articleBody: post?.body,
+  };
+
   if (!post) notFound();
 
   return (
     <PaddingContainer>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Container */}
       <div className="space-y-10">
         {/* Post Hero */}
