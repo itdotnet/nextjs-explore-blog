@@ -35,6 +35,21 @@ export const generateMetadata = async ({
       default: siteConfig.siteName,
     },
     description: dictionary.footer.description,
+    openGraph: {
+      title: siteConfig.siteName,
+      description: siteConfig.description,
+      url: "https://fxxqtl-3000.csb.app",
+      siteName: "Next.js",
+      images: [
+        {
+          url: "https://fxxqtl-3000.csb.app/opengraph-image.png",
+          width: 1200,
+          height: 600,
+        },
+      ],
+      locale: lang,
+      type: "website",
+    },
   };
 };
 

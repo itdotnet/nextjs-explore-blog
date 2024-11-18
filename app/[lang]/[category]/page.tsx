@@ -18,14 +18,29 @@ const getCategoryData = cache((categorySlug: string) => {
 });
 
 export const generateMetadata = async ({
-  params: { category },
+  params: { category, lang },
 }: {
-  params: { category: string };
+  params: { category: string; lang: string };
 }) => {
   const catData = getCategoryData(category);
   return {
     title: catData?.title,
     description: catData?.description,
+    openGraph: {
+      title: catData?.title,
+      description: catData?.description,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}`,
+      siteName: catData?.title,
+      /* images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}/opengraph-image.png`,
+          width: 1200,
+          height: 628,
+        },
+      ], */
+      locale: lang,
+      type: "website",
+    },
   };
 };
 

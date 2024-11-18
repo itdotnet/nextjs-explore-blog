@@ -21,15 +21,30 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = ({
-  params: { slug },
+  params: { slug, lang },
 }: {
-  params: { slug: string };
+  params: { slug: string; lang: string };
 }) => {
   const post = getPostData(slug);
 
   return {
     title: post?.title,
     description: post?.description,
+    openGraph: {
+      title: post?.title,
+      description: post?.description,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/post/${slug}`,
+      siteName: post?.title,
+      /* images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/post/${slug}/opengraph-image.png`,
+          width: 1200,
+          height: 628,
+        },
+      ], */
+      locale: lang,
+      type: "website",
+    },
   };
 };
 
