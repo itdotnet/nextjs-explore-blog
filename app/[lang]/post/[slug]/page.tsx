@@ -45,6 +45,13 @@ export const generateMetadata = ({
       locale: lang,
       type: "website",
     },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/post/${slug}`,
+      languages: {
+        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en/post/${slug}`,
+        "fa-IR": `${process.env.NEXT_PUBLIC_SITE_URL}/fa/post/${slug}`,
+      },
+    },
   };
 };
 

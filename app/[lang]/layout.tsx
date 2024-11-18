@@ -38,17 +38,24 @@ export const generateMetadata = async ({
     openGraph: {
       title: siteConfig.siteName,
       description: siteConfig.description,
-      url: "https://fxxqtl-3000.csb.app",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
       siteName: "Next.js",
       images: [
         {
-          url: "https://fxxqtl-3000.csb.app/opengraph-image.png",
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image.png`,
           width: 1200,
-          height: 600,
+          height: 628,
         },
       ],
       locale: lang,
       type: "website",
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      languages: {
+        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en`,
+        "fa-IR": `${process.env.NEXT_PUBLIC_SITE_URL}/fa`,
+      },
     },
   };
 };
