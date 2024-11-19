@@ -5,6 +5,7 @@ import PaddingContainer from "@/components/layout/padding-container";
 import PostBody from "@/components/post/post-body";
 import PostHero from "@/components/post/post-hero";
 import siteConfig from "@/config/site";
+import { getDictionary } from "@/lib/getDictionary";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
 
@@ -56,9 +57,10 @@ export const generateMetadata = ({
   };
 };
 
-const Page = ({ params }: { params: { slug: string; lang: string } }) => {
+const Page = async ({ params }: { params: { slug: string; lang: string } }) => {
   //const { slug, lang } = await params;
   const post = getPostData(params.slug);
+  const dictionary = await getDictionary(params.lang);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -113,7 +115,7 @@ const Page = ({ params }: { params: { slug: string; lang: string } }) => {
           <PostBody body={post.body} />
         </div>
         {/* CTACard */}
-        <CtaCard locale={params.lang} />
+        <CtaCard dictionary={dictionary} />
       </div>
     </PaddingContainer>
   );

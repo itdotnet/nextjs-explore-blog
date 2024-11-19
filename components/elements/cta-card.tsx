@@ -1,10 +1,9 @@
-import { getDictionary } from "@/lib/getDictionary";
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
-const CtaCard = async ({ locale }: { locale: string }) => {
-  const dictionary = await getDictionary(locale);
-
+const CtaCard = ({ dictionary }: { dictionary: any }) => {
   return (
     <div className="relative bg-slate-100 px-6 py-10 rounded-md overflow-hidden">
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/95 via-white/70 to-white/30" />
