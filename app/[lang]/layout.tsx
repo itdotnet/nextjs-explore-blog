@@ -57,6 +57,9 @@ export const generateMetadata = async ({
         "fa-IR": `${process.env.NEXT_PUBLIC_SITE_URL}/fa`,
       },
     },
+    verification: {
+      google: "sdsgfsgdgdgdgd",
+    },
   };
 };
 
